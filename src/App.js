@@ -45,8 +45,8 @@ class App extends React.Component {
           <img src={nordstromLogo} className="App-logo" alt="logo" />
         </header>
         <section>
-          <LevelGoals {...this.state} className="report-leveling"></LevelGoals>
-          <LevelGoals {...this.state} className="manager-leveling"></LevelGoals>
+          <LevelGoals {...this.state} selectionOwner="report" className="report-leveling"></LevelGoals>
+          <LevelGoals {...this.state} selectionOwner="manager" className="manager-leveling"></LevelGoals>
         </section>
       </div>
     );
