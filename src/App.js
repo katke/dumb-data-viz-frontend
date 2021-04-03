@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false,
+      dataFetched: false,
       items: {}
     }
   }
@@ -21,7 +21,7 @@ class App extends React.Component {
         (result) => {
           console.log("success");
           this.setState({
-            isLoaded: true,
+            dataFetched: true,
             levels: result.levels
           });
         },
@@ -31,7 +31,7 @@ class App extends React.Component {
         (error) => {
           console.log("Something went wrong");
           this.setState({
-            isLoaded: true,
+            dataFetched: true,
             error
           });
         }
@@ -44,8 +44,10 @@ class App extends React.Component {
         <header className="App-header">
           <img src={nordstromLogo} className="App-logo" alt="logo" />
         </header>
+        <section>
           <LevelGoals {...this.state} className="report-leveling"></LevelGoals>
           <LevelGoals {...this.state} className="manager-leveling"></LevelGoals>
+        </section>
       </div>
     );
   }

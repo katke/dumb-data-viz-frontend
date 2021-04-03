@@ -1,31 +1,30 @@
 import React from 'react';
 
 class LevelGoals extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {isLoaded: false}
-    }
-
-    componentDidMount() {
-        // setState({isLoaded: true});
-    }
-
     createLevelItems() {
-        // if (this.state.isLoaded) {
-        //     for (const [key, value] in Object.entries(this.props.levels)) {
-        //         console.log(key);
-        //         // value.forEach((descriptor => console.log(descriptor)));
-        //     }
-        // }
+        let checkpoints = [];
+        for (const [key, value] of Object.entries(this.props.levels)) {
+            checkpoints.push(<h2 id={"level-" + key}>Level {key}:</h2>);
+            value.forEach(item => {
+                checkpoints.push(<p id={key + "-" + item.id}>{item.value}</p>);
+            })
+        }
+        return checkpoints;
     }
 
     render() {
-        return (
-            <section className="leveling">
-                {this.createLevelItems()}
-            </section>
-            );
+        if (this.props.dataFetched) {
+            return (
+                <div className={"leveling " + this.props.className}>
+                    {this.createLevelItems()}
+                </div>
+                );
+            } else {
+                return null;
+            }
+        
         }
+
 }
   
   export default LevelGoals;

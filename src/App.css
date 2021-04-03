@@ -13,6 +13,19 @@
   }
 } */
 
+.report-leveling,
+.manager-leveling {
+  width: 40%;
+}
+
+.report-leveling {
+  float: left;
+}
+
+.manager-leveling {
+  float: right;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 15vh;
