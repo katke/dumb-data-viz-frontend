@@ -1,19 +1,6 @@
-.green-select,
-.red-select,
-.orange-select,
-.blue-select {
+option.green-select,
+option.red-select,
+option.orange-select,
+option.blue-select {
     height: 10px;
-}
-
-.green-select {
-    background-color: darkgreen;
-}
-.red-select {
-    background-color: darkred;
-}
-.orange-select {
-    background-color: orangered;
-}
-.blue-select {
-    background-color: midnightblue;
 }

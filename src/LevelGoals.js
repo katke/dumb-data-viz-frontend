@@ -1,18 +1,29 @@
 import React from 'react';
-import ColorSelection from "./ColorSelection";
+import Goal from './Goal';
 
 class LevelGoals extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedColor: "unselected"
+        }
+    }
+
+    getSelectionColorValue(selectedColor) {
+        this.setState({
+            colorSelection: selectedColor
+        });
+    }
+
     createLevelItems() {
         let checkpoints = [];
         for (const [key, value] of Object.entries(this.props.levels)) {
-            checkpoints.push(<h2 id={"level-" + key}>Level {key}:</h2>);
+            checkpoints.push(<h2 key={"level-" + key}>Level {key}:</h2>);
             value.forEach(item => {
                 checkpoints.push(
-                <p id={key + "-" + item.id}>
-                    {item.value}
-                    <ColorSelection selectionOwner={this.props.selectionOwner}/>
-                </p>);
-            })
+                <Goal key={key + "-" + item.id}
+                    text={item.value}/>);
+            });
         }
         return checkpoints;
     }

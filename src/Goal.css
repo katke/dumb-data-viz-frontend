@@ -1,0 +1,15 @@
+.green-select {
+    color: darkgreen;
+}
+.red-select {
+    color: darkred;
+}
+.orange-select {
+    color: orangered;
+}
+.blue-select {
+    color: midnightblue;
+}
+.unselected-select {
+    color: black;
+}
