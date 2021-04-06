@@ -11,15 +11,15 @@ class Goal extends React.Component {
 
     updateColor(event) {
         this.setState({
-            colorValue: event.target.newColor
+            colorValue: event.target.value
         });
     }
 
     render() {
         return [
-        <p className={"goal " + this.state.colorValue + "-select"}>{this.props.text}</p>,
+        <p style={{"color": this.state.colorValue}} className={"goal " + this.state.colorValue + "-selection"}>{this.props.text}</p>,
         <ColorSelection 
-            onColorSelection={this.updateColor}
+            onColorSelection={this.updateColor.bind(this)}
             selectionOwner={this.props.selectionOwner}/>
         ];
     }
