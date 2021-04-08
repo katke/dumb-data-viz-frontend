@@ -17,11 +17,14 @@ class Goal extends React.Component {
     }
 
     render() {
-        return [
-        <p className={"goal " + this.state.colorValue + "-selection"}>{this.props.text}</p>,
-        <ColorSelection 
+        return [<div className="grid-col-4">
+            <p className={"goal " + this.state.colorValue + "-selection"}>{this.props.text}</p>
+        </div>,
+        <div className="grid-col-2">
+            <ColorSelection 
             onColorSelection={this.updateColor.bind(this)}
             selectionOwner={this.props.selectionOwner}/>
+        </div>
         ];
     }
 }

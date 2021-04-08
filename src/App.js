@@ -30,6 +30,7 @@ class App extends React.Component {
         // exceptions from actual bugs in components.
         (error) => {
           console.log("Something went wrong");
+          console.log(error);
           this.setState({
             dataFetched: true,
             error
@@ -40,13 +41,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="App grid">
+        <header className="App-header grid-col-6">
           <img src={nordstromLogo} className="App-logo" alt="logo" />
         </header>
         <section>
-          <LevelGoals {...this.state} selectionOwner="report" className="report-leveling"></LevelGoals>
-          <LevelGoals {...this.state} selectionOwner="manager" className="manager-leveling"></LevelGoals>
+          <LevelGoals {...this.state} selectionOwner="report" className="report-leveling grid-col-3"></LevelGoals>
+          <LevelGoals {...this.state} selectionOwner="manager" className="manager-leveling grid-col-3"></LevelGoals>
         </section>
       </div>
     );

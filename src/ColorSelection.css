@@ -6,3 +6,7 @@ option.blue-select {
     margin: 5px;
     display: inline-block;
 }
+
+.color-selection-dropbox {
+    vertical-align: top;
+}
