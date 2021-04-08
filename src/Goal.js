@@ -1,5 +1,6 @@
 import React from 'react';
 import ColorSelection from "./ColorSelection";
+import './Goal.css';
 
 class Goal extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Goal extends React.Component {
 
     render() {
         return [
-        <p style={{"color": this.state.colorValue}} className={"goal " + this.state.colorValue + "-selection"}>{this.props.text}</p>,
+        <p className={"goal " + this.state.colorValue + "-selection"}>{this.props.text}</p>,
         <ColorSelection 
             onColorSelection={this.updateColor.bind(this)}
             selectionOwner={this.props.selectionOwner}/>

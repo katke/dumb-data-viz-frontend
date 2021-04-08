@@ -1,4 +1,5 @@
 import React from 'react';
+import './ColorSelection.css';
 
 class ColorSelection extends React.Component {
     render() {

@@ -19,11 +19,9 @@ class LevelGoals extends React.Component {
         let checkpoints = [];
         for (const [key, value] of Object.entries(this.props.levels)) {
             checkpoints.push(<h2 key={"level-" + key}>Level {key}:</h2>);
-            value.forEach(item => {
-                checkpoints.push(
-                <Goal key={key + "-" + item.id}
-                    text={item.value}/>);
-            });
+            checkpoints.push(value.map(item => {
+                return <Goal key={key + "-" + item.id} text={item.value}/>;
+            }));
         }
         return checkpoints;
     }
