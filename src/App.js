@@ -1,16 +1,19 @@
 import nordstromLogo from './Nordstrom_N_logo.jpg'
 import LevelGoals from './LevelGoals';
 import React from 'react';
+import ColorCodingComplete from './ColorCodingComplete';
 import './App.css';
 
-// https://jsonblob.com/api/04738fae-94ac-11eb-aa1a-abdb46c07136
+// https://jsonblob.com/api/04738fae-94ac-11eb-aa1a-abdb46c07136 in progress endpoint
+// https://jsonblob.com/api/0a80ceba-9a40-11eb-a8aa-2df9e5152ea6 completed endpoint
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       dataFetched: false,
-      items: {}
+      items: {},
+      colorCodingCompleted: false
     }
   }
 
@@ -39,6 +42,16 @@ class App extends React.Component {
       )
   }
 
+  renderColorCodingCompleteView() {
+    return <ColorCodingComplete {...this.state} />
+  }
+
+  renderColorCodingInProgressView() {
+    return (
+        <LevelGoals {...this.state} className="grid-col-6"/>
+    );
+  }
+
   render() {
     return (
       <div className="App grid">
@@ -46,8 +59,7 @@ class App extends React.Component {
           <img src={nordstromLogo} className="App-logo" alt="logo" />
         </header>
         <section>
-          <LevelGoals {...this.state} selectionOwner="report" className="report-leveling grid-col-3"></LevelGoals>
-          <LevelGoals {...this.state} selectionOwner="manager" className="manager-leveling grid-col-3"></LevelGoals>
+          {this.state.colorCodingCompleted ? this.renderColorCodingCompleteView() : this.renderColorCodingInProgressView()}
         </section>
       </div>
     );

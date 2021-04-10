@@ -1,4 +1,5 @@
-.grid {
+.grid,
+.grid-col-6 {
   /* for simplicity, just 6 columns for full width */
   width: calc(100vw - 20px);
   margin: 10px;

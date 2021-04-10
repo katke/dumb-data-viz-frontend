@@ -16,22 +16,29 @@ class LevelGoals extends React.Component {
     }
 
     createLevelItems() {
-        let checkpoints = [];
+        let goals = [];
         for (const [key, value] of Object.entries(this.props.levels)) {
-            checkpoints.push(<h2 key={"level-" + key}>Level {key}:</h2>);
-            checkpoints.push(value.map(item => {
+            goals.push(<h2 key={"level-" + key}>Level {key}:</h2>);
+            goals.push(value.map(item => {
                 return <Goal key={key + "-" + item.id} text={item.value}/>;
             }));
         }
-        return checkpoints;
+        return goals;
+    }
+
+    levelingSubmission(event) {
+        event.preventDefault();
+        console.log("form submitted");
     }
 
     render() {
         if (this.props.dataFetched) {
             return (
-                <div className={"leveling " + this.props.className}>
+                <form id="colorCodingSubmission" onSubmit={this.levelingSubmission.bind(this)}
+                className={"leveling " + this.props.className}>
                     {this.createLevelItems()}
-                </div>
+                    <button type="submit" value="Submit">Submit</button>
+                </form>
                 );
             } else {
                 return null;
