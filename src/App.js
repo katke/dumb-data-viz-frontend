@@ -59,6 +59,7 @@ class App extends React.Component {
           <img src={nordstromLogo} className="App-logo" alt="logo" />
         </header>
         <section>
+          <h4>Color Coding Exercise</h4>
           {this.state.colorCodingCompleted ? this.renderColorCodingCompleteView() : this.renderColorCodingInProgressView()}
         </section>
       </div>

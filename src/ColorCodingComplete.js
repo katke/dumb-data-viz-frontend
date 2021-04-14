@@ -51,8 +51,8 @@ class ColorCodingComplete extends React.Component {
         const reportName = this.state.results.report;
         const managerName = this.state.results.manager;
         return [
-            <h3 className="grid-col-3">{reportName}</h3>,
-            <h3 className="grid-col-3">{managerName}</h3>,
+            <h3 className="grid-col-2">{reportName}</h3>,
+            <h3 className="grid-col-2">{managerName}</h3>,
             this.compareAndRenderResults(this.state.results.selections)
         ];
       }
