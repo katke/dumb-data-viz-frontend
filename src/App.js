@@ -1,46 +1,36 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
+import { Wrapper } from "@googlemaps/react-wrapper";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataFetched: false
-    }
-  }
 
-  componentDidMount() {
-    // fetch("https://jsonblob.com/api/04738fae-94ac-11eb-aa1a-abdb46c07136")
-    //   .then(res => res.json())
-    //   .then(
-    //     (result) => {
-    //       console.log("success");
-    //       this.setState({
-    //         dataFetched: true
-    //       });
-    //     },
-    //     // Note: it's important to handle errors here
-    //     // instead of a catch() block so that we don't swallow
-    //     // exceptions from actual bugs in components.
-    //     (error) => {
-    //       console.log("Something went wrong");
-    //       console.log(error);
-    //       this.setState({
-    //         dataFetched: true,
-    //         error
-    //       });
-    //     }
-    //   )
-  }
+function App() {
 
-  render() {
-    return (
-      <div className="app">
-        Hello!
-      </div>
-    );
-  }
-  
+  return (
+    // Key is restricted by request origin
+    <Wrapper apiKey={"MYKEY"}>
+      <Map/>
+    </Wrapper>
+  );
 }
+
+function Map() {
+  const ref = useRef();
+  const [map, setMap] = useState();
+
+  useEffect(() => {
+    if (ref.current && !map) {
+      setMap(new window.google.maps.Map(ref.current, {}));
+    }
+  }, [ref, map]);
+
+  return (
+    <div id="map">{map}</div>
+  );
+
+}
+
+const render = (status) => {
+  return <h1>{status}</h1>;
+};
 
 export default App;
