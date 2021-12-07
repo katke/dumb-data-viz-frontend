@@ -6,8 +6,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 function App() {
 
   return (
-    // Key is restricted by request origin
-    <Wrapper apiKey={"MYKEY"}>
+    <Wrapper apiKey={process.env.MAPS_API_KEY}>
       <Map/>
     </Wrapper>
   );
