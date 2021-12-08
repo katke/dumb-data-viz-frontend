@@ -2,34 +2,31 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import { Wrapper } from "@googlemaps/react-wrapper";
 
+// const render = (status) => {
+//   console.log(status);
+  // statuses: LOADING
+  // return <h1>{status}</h1>;
+// };
 
-function App() {
-
+const App = () => {
   return (
-    <Wrapper apiKey={process.env.MAPS_API_KEY}>
-      <Map/>
+    <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
+      <Map center={{lat: 51.501366, lng: -0.141890 }} zoom={5} />
     </Wrapper>
   );
 }
 
-function Map() {
-  const ref = useRef();
-  const [map, setMap] = useState();
+const Map = (props) => {
+  const mapRef = useRef();
 
   useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, {}));
-    }
-  }, [ref, map]);
+    new window.google.maps.Map(mapRef.current, {
+      center: props.center,
+      zoom: props.zoom,
+    });
+  });
 
-  return (
-    <div id="map">{map}</div>
-  );
-
+  return <div ref={mapRef} id="map" />;
 }
-
-const render = (status) => {
-  return <h1>{status}</h1>;
-};
 
 export default App;
